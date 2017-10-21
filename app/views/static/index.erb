@@ -2,7 +2,13 @@
 
 <form action="/urls" method="post">
 	<h3>Enter URL:</h3><br>
-	<input type="text" name="long_url"><br><br>
-	<input type="submit" value="Level Up">	
+	<input type="text" name="long_url" placeholder="Enter URL here"><br><br>
+	<input type="submit" value="Level Up" onsubmit="">	
 </form>
 
+<p><%= @message if @message %></p>
+
+<% if @user_url && @user_url.short_url %>	
+	<%= @user_url.long_url %><br>
+	<a href="/<%=@user_url.short_url %>">bitly.com/<%= @user_url.short_url %></a>
+<% end %>
